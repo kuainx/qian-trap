@@ -1,5 +1,13 @@
 {
   "compilerOptions": {
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "@/static/*": [
+        "./src/static/*"
+      ],
+    },
     "target": "es2017",
     "module": "commonjs",
     "removeComments": false,
@@ -15,13 +23,19 @@
     "sourceMap": true,
     "baseUrl": ".",
     "rootDir": ".",
-    "jsx": "react",
+    "jsx": "preserve",
     "allowJs": true,
     "resolveJsonModule": true,
+    "types": [
+      "@tarojs/components/vue3"
+    ],
     "typeRoots": [
       "node_modules/@types"
     ]
   },
-  "include": ["./src", "global.d.ts"],
+  "include": [
+    "./src",
+    "global.d.ts"
+  ],
   "compileOnSave": false
 }

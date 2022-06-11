@@ -1,7 +1,7 @@
 <template>
   <view class="index">
     <view>
-      <img src="" alt="">
+      <Image :src="LogoImage" />
     </view>
     {{ msg }}
     <view class="btn">
@@ -13,10 +13,11 @@
 
 <script>
 import { reactive, toRefs } from 'vue';
+import LogoImage from '../../static/logo.png';
 export default {
   name: 'Index',
   components: {
-    
+
   },
   setup(){
     const state = reactive({
@@ -44,9 +45,6 @@ export default {
 
 <style lang="scss">
 .index {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
 }
 </style>
