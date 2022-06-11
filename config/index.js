@@ -1,15 +1,16 @@
 const config = {
   projectName: 'qian-trap',
   date: '2022-6-11',
-  designWidth: 750,
+  designWidth: 375,
   deviceRatio: {
     640: 2.34 / 2,
     750: 1,
-    828: 1.81 / 2
+    828: 1.81 / 2,
+    375: 2 / 1
   },
   sourceRoot: 'src',
   outputRoot: 'dist',
-  plugins: ['taro-plugin-pinia'],
+  plugins: ['@tarojs/plugin-html'],
   defineConstants: {
   },
   copy: {
@@ -19,29 +20,15 @@ const config = {
     }
   },
   framework: 'vue3',
+  sass:{
+    data: `@import "@nutui/nutui-taro/dist/styles/variables.scss";`
+  },
   mini: {
-    webpackChain (chain) {
-      chain.merge({
-        module: {
-          rule: {
-            mjsScript: {
-              test: /\.mjs$/,
-              include: [/pinia/],
-              use: {
-                babelLoader: {
-                  loader: require.resolve('babel-loader')
-                }
-              }
-            }
-          }
-        }
-      })
-    },
     postcss: {
       pxtransform: {
         enable: true,
         config: {
-
+          selectorBlackList: ['nut-']
         }
       },
       url: {
@@ -62,6 +49,7 @@ const config = {
   h5: {
     publicPath: '/',
     staticDirectory: 'static',
+    esnextModules: ['nutui-taro'],
     postcss: {
       autoprefixer: {
         enable: true,
